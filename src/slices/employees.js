@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const initialState = {
   loading: false,
   hasErrors: false,
+  filteredBy: false,
   employees: [],
 }
 
@@ -22,11 +23,15 @@ const employeesSlice = createSlice({
       state.loading = false
       state.hasErrors = true
     },
+    getEmployeesFiltered: (state, { payload }) => {
+      state.filteredBy = payload
+    }
   },
 })
 
-export const { getEmployees, getEmployeesSuccess, getEmployeesFailure } = employeesSlice.actions
+export const { getEmployees, getEmployeesSuccess, getEmployeesFailure, getEmployeesFiltered} = employeesSlice.actions
 export const employeesSelector = state => state.employees
+export const filteredSelector = state => state.filteredBy
 export default employeesSlice.reducer
 
 export function fetchEmployees() {
@@ -43,3 +48,4 @@ export function fetchEmployees() {
     }
   }
 }
+
