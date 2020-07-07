@@ -33,6 +33,7 @@ const EmployeesPage = () => {
     <Table striped bordered hover>
       <thead>
       <tr>
+        <th>Photo</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Phone</th>
